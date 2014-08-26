@@ -65,7 +65,7 @@ class WooRolePricingLight {
 						$product_price      = $_tax->round( $baseprice - array_sum( $taxes ) );
 					}
 
-					$result = self::bcmul($product_price, $commission, WOO_ROLE_PRICING_DECIMALS);
+					$result = self::bcmul($product_price, $commission, WOO_ROLE_PRICING_LIGHT_DECIMALS);
 					
 					if ( $product->is_taxable() && get_option('woocommerce_prices_include_tax') == 'yes' ) {
 						$_tax       = new WC_Tax();
@@ -74,7 +74,7 @@ class WooRolePricingLight {
 						$result      = $_tax->round( $result + array_sum( $taxes ) );
 					}
 				} else {
-					$result = self::bcsub($product_price, $commission, WOO_ROLE_PRICING_DECIMALS);
+					$result = self::bcsub($product_price, $commission, WOO_ROLE_PRICING_LIGHT_DECIMALS);
 				}
 			}
 		}
@@ -122,7 +122,7 @@ class WooRolePricingLight {
 		if ( $discount ) {
 			$method = get_option( "wrp-method", "rate" );
 			if ( $method == "rate" ) {
-				$discount = self::bcsub ( 1, $discount, WOO_ROLE_PRICING_DECIMALS );
+				$discount = self::bcsub ( 1, $discount, WOO_ROLE_PRICING_LIGHT_DECIMALS );
 				// for security reasons, set 0
 				if ( $discount < 0 ) {
 					$discount = 0;

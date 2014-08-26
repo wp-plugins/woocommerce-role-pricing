@@ -33,7 +33,7 @@ define( 'WOO_ROLE_PRICING_LIGHT_PLUGIN_NAME', 'woo-role-pricing-light' );
 define( 'WOO_ROLE_PRICING_LIGHT_FILE', __FILE__ );
 
 if ( !defined( 'WOO_ROLE_PRICING_LIGHT_CORE_DIR' ) ) {
-	define( 'WOO_ROLE_PRICING_LIGHT_CORE_DIR', WP_PLUGIN_DIR . '/woo-role-pricing-light/core' );
+	define( 'WOO_ROLE_PRICING_LIGHT_CORE_DIR', WP_PLUGIN_DIR . '/woocommerce-role-pricing/core' );
 }
 
 define ( 'WOO_ROLE_PRICING_LIGHT_DECIMALS', apply_filters( 'woo_role_pricing_num_decimals', 2 ) );
