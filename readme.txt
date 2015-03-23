@@ -14,12 +14,12 @@ Discounted prices to subscribers, editors and other roles in Woocommerce
 
 According to the role that the customer has, he will see a store with discounted prices or not, so you can set direct discounts to subscribers, editors ….
 
-**Features:**
+= Features: =
   * You can set discounts by rates or amount method.
   * Applied to regular price or sale price
   * Different discount according to user's role.
 
-**Pro version:**
+= Pro version: =
   * Discounts by products (now variables available)
   * Discounts by categories
   * If user has various roles, you can select the criterial (higher discount, lower discount, ...)
