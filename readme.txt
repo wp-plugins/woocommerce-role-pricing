@@ -12,11 +12,17 @@ Discounted prices to subscribers, editors and other roles in Woocommerce
 
 == Description ==
 
-According to the role that the visitor has, he will see a store with discounted prices or not, so you can set direct discounts to subscribers, editors ….
+According to the role that the customer has, he will see a store with discounted prices or not, so you can set direct discounts to subscribers, editors ….
 
-- You can set discounts by rates or amount method. 
-- Applied to regular price or sale price. 
-- Different discount according to user's role.
+**Features:**
+* You can set discounts by rates or amount method. 
+* Applied to regular price or sale price. 
+* Different discount according to user's role.
+
+**Pro version:**
+* Discounts by products (now variables available)
+* Discounts by categories
+* If user has various roles, you can select the criterial (higher discount, lower discount, ...)
 
 Official site: [eggemplo](http://eggemplo.com/plugins/woocommerce-role-pricing/)
 
@@ -32,6 +38,10 @@ You can either install it automatically from the WordPress admin, or do it manua
 
 = Only rate method is available to discounts ? =
 No, you can use rate or a fixed amount as discount.
+= I want to apply different discounts by product. =
+You need Pro version to get this feature.
+= I select apply to sale price but my product isn't on sale. =
+Then discount is applied to the regular price.
 
 == Screenshots ==
 
