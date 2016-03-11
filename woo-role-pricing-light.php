@@ -60,8 +60,8 @@ class WooRolePricingLight_Plugin {
 	public static function wp_init() {
 		
 		if ( is_multisite() ) {
-			$active_plugins = get_site_option( 'active_sitewide_plugins', array() );
-			$active_plugins = array_keys( $active_plugins );
+			$active_plugins_sitewide = get_site_option( 'active_sitewide_plugins', array() );
+			$active_plugins = array_merge(array_keys($active_plugins_sitewide),  get_option( 'active_plugins', array() ));
 		} else {
 			$active_plugins = get_option( 'active_plugins', array() );
 		}
