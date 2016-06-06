@@ -38,13 +38,13 @@ class WooRolePricingLight {
 
 		$baseprice = $price;
 		$result = $baseprice;
+		$user_id = intval($user_id);
 
+		
 		// Override wordpress is_admin() if an ajax request,
 		// otherwise is_admin() will always return true!
 		$is_admin = ($ajax_req == false) ? !is_admin() : true;
 
-		// To do -- check invalid entries -- intval true would be 1 which is boo
-		$user_id = intval($user_id);
 		if ( ($post == null) || $is_admin ) {
 
 			if ( $product->is_type( 'variation' ) ) {
