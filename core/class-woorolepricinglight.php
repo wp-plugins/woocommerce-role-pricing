@@ -33,17 +33,28 @@ class WooRolePricingLight {
 		
 	}
 	
-	public static function woocommerce_get_price ( $price, $product ) {
+	public static function woocommerce_get_price ( $price, $product, $user_id=-1, $ajax_req=false ) {
 		global $post, $woocommerce;
 
 		$baseprice = $price;
 		$result = $baseprice;
+		$user_id = intval($user_id);
+
 		
-		if ( ($post == null) || !is_admin() ) {
-		
-			$commission = self::get_commission( $product );
-			
+		// Override wordpress is_admin() if an ajax request,
+		// otherwise is_admin() will always return true!
+		$is_admin = ($ajax_req == false) ? !is_admin() : true;
+
+		if ( ($post == null) || $is_admin ) {
+
+			if ( $product->is_type( 'variation' ) ) {
+				$commission = WRP_Variations_Admin::get_commission( $product, $product->variation_id );
+			} else {
+				$commission = self::get_commission( $product, $user_id );
+			}
+
 			if ( $commission ) {
+
 				
 				$baseprice = $product->get_regular_price();
 				
@@ -104,14 +115,13 @@ class WooRolePricingLight {
 	
 	// extra functions
 	
-	public static function get_commission ( $product ) {
+	public static function get_commission ( $product, $user_id=-1 ) {
 		global $post, $woocommerce;
-	
-		
-		$user = wp_get_current_user();
+		//Get user by ID if an id is present / Useful for ajax requests or bulk order generations..
+		$user = ($user_id == -1) ? wp_get_current_user() : get_user_by('ID', $user_id);
+
 		$user_roles = $user->roles;
 		$user_role = array_shift($user_roles);
-		
 		$discount = 0;
 		
 		if ( $user_role !== null ) {
@@ -129,7 +139,7 @@ class WooRolePricingLight {
 				}
 			}
 		}
-	
+		
 		return $discount;
 		
 	}
